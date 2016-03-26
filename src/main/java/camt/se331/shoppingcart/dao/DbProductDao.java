@@ -50,4 +50,9 @@ public class DbProductDao implements ProductDao {
     public Product updateProduct(Product product) {
         return productRepository.save(product);
     }
+
+    @Override
+    public List<Product> getProdutsByName(String name) {
+        return productRepository.findByNameLike(name);
+    }
 }
