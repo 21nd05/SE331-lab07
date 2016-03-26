@@ -22,9 +22,14 @@ productMainController.controller('addProductController', ['$scope', '$http', '$l
 
 productMainController.controller('listProductController', ['$scope', '$http', '$rootScope','productService','$route','totalCalService','queryProductService',
     function ($scope, $http, $rootScope,productService,$route,totalCalService,queryProductService) {
+        $scope.products = [];
         //$http.get("/product/").success(function (data) {
         $scope.searchProduct=function(name){
-            queryProductService.query({name:name},function(data){$scope.product=data;});
+            queryProductService.query({name:name},function(data,getResponseHeaders){
+                console.log(getResponseHeaders);
+                console.log(data);
+                $scope.products=data;
+            });
         }
         var data = productService.query(function(){
             $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);

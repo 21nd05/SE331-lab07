@@ -52,7 +52,12 @@ public class DbProductDao implements ProductDao {
     }
 
     @Override
-    public List<Product> getProdutsByName(String name) {
-        return productRepository.findByNameLike(name);
+    public List<Product> getProductsByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    @Override
+    public List<Product> getProductsByNameOrDescription(String name, String description) {
+        return productRepository.findByNameOrDescriptionContainingIgnoreCase(name,name);
     }
 }

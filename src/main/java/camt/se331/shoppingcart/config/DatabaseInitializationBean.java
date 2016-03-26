@@ -4,12 +4,16 @@ import camt.se331.shoppingcart.entity.Product;
 import camt.se331.shoppingcart.repository.ProductRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 /**
  * Created by Family on 26/3/2559.
  */
+@Component
+@Profile("db.init")
 public class DatabaseInitializationBean implements InitializingBean{
 
         @Autowired
