@@ -3,6 +3,7 @@ package camt.se331.shoppingcart.entity;
 /**
  * Created by Dto on 2/7/2015.
  */
+
 public class SelectedProduct {
     Product product;
     Integer amount;
