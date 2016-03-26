@@ -65,7 +65,8 @@ class PersistenceContext {
         boneCPDataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DB_PASSWORD));
         boneCPDataSource.setIdleConnectionTestPeriodInMinutes(60);
         boneCPDataSource.setIdleMaxAgeInMinutes(420);
-        boneCPDataSource.setMinConnectionsPerPartition(30);
+        boneCPDataSource.setMaxConnectionsPerPartition(30);
+        boneCPDataSource.setMinConnectionsPerPartition(10);
         boneCPDataSource.setPartitionCount(3);
         boneCPDataSource.setAcquireIncrement(5);
         boneCPDataSource.setStatementsCacheSize(100);
@@ -77,6 +78,7 @@ class PersistenceContext {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
         vendorAdapter.setShowSql(false);
+
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan(ENTITY_PACKAGES);
