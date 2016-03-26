@@ -1,7 +1,10 @@
 package camt.se331.shoppingcart.repository;
 
+import camt.se331.shoppingcart.entity.ShoppingCart;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  * Created by User on 26/3/2559.
  */
-public interface ShoppingCartRepository {
+public interface ShoppingCartRepository extends JpaRepository<ShoppingCart,Long> {
 }

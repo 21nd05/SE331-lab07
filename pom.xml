@@ -14,7 +14,18 @@
         <jacksondatabine.version>2.5.0</jacksondatabine.version>
         <slf.version>1.7.10</slf.version>
     </properties>
+
     <dependencies>
+        <dependencies>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.6.2</version>
+        </dependencies>
+        <dependencies>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
