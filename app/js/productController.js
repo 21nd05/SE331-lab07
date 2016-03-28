@@ -9,7 +9,7 @@ productMainController.controller('addProductController', ['$scope', '$http', '$l
         $scope.editPerson = false;
         $scope.addProduct = function () {
 
-            //$http.post("/product", $scope.product).success(function () {
+            //$http.post("http://localhost:8080/product", $scope.product).success(function () {
             productService.save($scope.product,function(){
                 $rootScope.addSuccess = true;
                 $location.path("listProduct");
@@ -22,19 +22,17 @@ productMainController.controller('addProductController', ['$scope', '$http', '$l
 
 productMainController.controller('listProductController', ['$scope', '$http', '$rootScope','productService','$route','totalCalService','queryProductService',
     function ($scope, $http, $rootScope,productService,$route,totalCalService,queryProductService) {
-        $scope.products = [];
-        //$http.get("/product/").success(function (data) {
-        $scope.searchProduct=function(name){
-            queryProductService.query({name:name},function(data,getResponseHeaders){
-                console.log(getResponseHeaders);
-                console.log(data);
-                $scope.products=data;
-            });
-        }
+    //$http.get("http://localhost:8080/product/").success(function (data) {
         var data = productService.query(function(){
             $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
             $scope.products = data;
         });
+
+        $scope.searchProduct = function(name){
+            queryProductService.query({name:name},function(data) {
+            $scope.products = data;
+        });
+        }
 
 
         $scope.$on('$locationChangeStart', function (event) {

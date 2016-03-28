@@ -4,9 +4,6 @@ import camt.se331.shoppingcart.entity.Product;
 
 import java.util.List;
 
-/**
- * Created by Dto on 2/7/2015.
- */
 public interface ProductService {
     List<Product> getProducts();
     Product getProduct(Long id);
@@ -14,5 +11,4 @@ public interface ProductService {
     Product deleteProduct(Long id);
     Product updateProduct(Product product);
     List<Product> getProductsByName(String name);
-    List<Product> getProductsByNameOrDescription(String name,String description);
 }

@@ -8,13 +8,17 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by User on 26/3/2559.
- */
+
 @Repository
 public class ShoppingCartDaoImpl implements ShoppingCartDao {
     @Autowired
     ShoppingCartRepository shoppingCartRepository;
+
+    @Override
+    public ShoppingCart findById(Long id) {
+        return shoppingCartRepository.findOne(id);
+    }
+
     @Override
     public List<ShoppingCart> getShoppingCarts() {
         return null;
@@ -39,9 +43,5 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     public ShoppingCart deleteShoppingCart(ShoppingCart shoppingCart) {
         return null;
     }
-
-    @Override
-    public ShoppingCart findById(Long id) {
-        return shoppingCartRepository.findOne(id);
-    }
 }
+

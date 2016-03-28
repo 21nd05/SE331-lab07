@@ -7,9 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by User on 26/3/2559.
- */
 @Repository
 public class DbProductDao implements ProductDao {
     @Autowired
@@ -53,11 +50,6 @@ public class DbProductDao implements ProductDao {
 
     @Override
     public List<Product> getProductsByName(String name) {
-        return productRepository.findByNameContainingIgnoreCase(name);
-    }
-
-    @Override
-    public List<Product> getProductsByNameOrDescription(String name, String description) {
         return productRepository.findByNameOrDescriptionContainingIgnoreCase(name,name);
     }
 }

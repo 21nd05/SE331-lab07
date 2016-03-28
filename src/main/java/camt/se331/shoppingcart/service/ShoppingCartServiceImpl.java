@@ -9,15 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by User on 26/3/2559.
- */
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Autowired
     ShoppingCartDao shoppingCartDao;
+
     @Override
     @Transactional
+    public ShoppingCart findById(Long id) {
+        return shoppingCartDao.findById(id);
+    }
+
+    @Override
     public List<ShoppingCart> getShoppingCarts() {
         return null;
     }
@@ -35,10 +38,5 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public ShoppingCart deleteShoppingCart(ShoppingCart shoppingCart) {
         return null;
-    }
-
-    @Override
-    public ShoppingCart findById(Long id) {
-        return shoppingCartDao.findById(id);
     }
 }

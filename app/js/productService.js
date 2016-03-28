@@ -8,7 +8,12 @@ productService.factory('productService',function($resource){
         }});
 
 })
-
+productService.factory('queryProductService',function($resource) {
+    return $resource('http://localhost:8080/getProduct/?name=:name',
+        {
+            query: {method: 'GET', params: {name: ''}, isArray: true}
+        });
+})
 
 productService.service('totalCalService',function() {
     this.getTotalNetPrice = function (products) {
@@ -20,16 +25,4 @@ productService.service('totalCalService',function() {
         }
         return output;
     }
-})
-
-productService.factory('queryProductService',function($resource) {
-    return $resource('http://localhost:8080/getProduct',{},
-        {
-            query:{
-                method:'GET',
-                params:{name: ''},
-                isArray:true
-            }
-        }
-    );
 })

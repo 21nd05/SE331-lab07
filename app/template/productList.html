@@ -18,19 +18,19 @@
     <!-- Default panel contents -->
     <div class="panel-heading">Products</div>
     <div class="panel-body">
-        <div class="col-lg-4">
+        <div class="col-lg-4" >
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" >
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
-                <span class="input-group-btn"><button class="btn btn-default" type="button" ng-click="searchProduct(name)">Search</button> </span>
-                </div>
-            <!--/input-group-->
-            </div>
-        <!--/input-group-->
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="searchProduct(name)">Search</button>
+</span>
+</div>
+    <!-- /input-group -->
         </div>
-    <!--/.col-lg-6-->
-    </div>
+        <!-- /.col-lg-6 -->
+</div>
 
     <!-- Table -->
     <table class="table table-hover">
@@ -57,6 +57,7 @@
             <th><strong translate>listProduct.total</strong> </th>
             <th></th>
             <th class="text-right">{{totalNetPrice | number}}</th>
+            <th></th>
             <th></th>
             <th></th>
 
